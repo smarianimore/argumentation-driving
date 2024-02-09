@@ -12,7 +12,7 @@ plugins {
 
 ext {
     javaMainClass = "sm.paper.Experiment01"
-    javaVersion = JavaLanguageVersion.of(12)
+    javaVersion = JavaLanguageVersion.of(21)
 }
 
 java {
