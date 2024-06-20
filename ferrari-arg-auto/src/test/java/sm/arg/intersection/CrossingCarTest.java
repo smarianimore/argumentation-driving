@@ -11,6 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import sm.argumentation.intersection.CrossingCar;
 import sm.intersection.Car;
 import sm.intersection.DIRECTION;
 import sm.intersection.STATUS;
@@ -23,7 +24,7 @@ import sm.intersection.WAY;
  */
 public class CrossingCarTest {
 
-	private CrossingCar car;
+	private sm.argumentation.intersection.CrossingCar car;
 
 	/**
 	 * @throws java.lang.Exception
@@ -51,7 +52,7 @@ public class CrossingCarTest {
 	}
 
 	/**
-	 * Test method for {@link sm.arg.intersection.CrossingCar#getTimeToCross()}.
+	 * Test method for {@link sm.argumentation.intersection.CrossingCar#getTimeToCross()}.
 	 */
 	@Test
 	public final void testGetTimeToCross() {

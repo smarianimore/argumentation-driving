@@ -13,7 +13,7 @@ public enum WAY {
 
     public static final List<WAY> VALUES = Collections.unmodifiableList(Arrays.asList(WAY.values()));
     private static final int SIZE = WAY.VALUES.size();
-    private static final Random RANDOM = new Random();
+    private static Random RANDOM;
 
     WAY(final int intValue) {
         this.intValue = intValue;
@@ -21,6 +21,10 @@ public enum WAY {
 
     public static WAY random() {
         return WAY.VALUES.get(WAY.RANDOM.nextInt(WAY.SIZE));
+    }
+
+    public static void setSeed(final long seed) {
+        WAY.RANDOM = new Random(seed);
     }
 
     public int intValue() {

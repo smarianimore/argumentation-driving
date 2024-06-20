@@ -7,10 +7,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.BaseRSU;
+import sm.simulation.RandomStrat;
+import sm.simulation.Simulation;
+import sm.simulation.VehiclesGenerationStrategy;
 
 /**
  * @author sm
@@ -18,8 +21,8 @@ import sm.intersection.BaseRSU;
  */
 public class SingleJunctionAutoSimulationTest {
 
-    //	private SingleJunctionAutoSimulation sim1;
-    private SingleJunctionAutoSimulation sim2;
+    //	private Simulation sim1;
+    private Simulation sim2;
 
     /**
      * @throws java.lang.Exception
@@ -28,12 +31,12 @@ public class SingleJunctionAutoSimulationTest {
     public void setUp() throws Exception {
         FourWaysJunctionConfig config = new FourWaysJunctionConfig("junction1", new NumArgsPolicy("numArgsPolicy1"),
                 new DistanceRSU(new BaseRSU("distance1", 1), 100));
-        //VehiclesGenStrategy strat = new ConflictStrategy();
-        VehiclesGenStrategy strat = new DeepAltRouteRandomStrategy();
+        //VehiclesGenerationStrategy strat = new ConflictCtrlStrat();
+        VehiclesGenerationStrategy strat = new RandomStrat();
         strat.configJunction(config.getJunction());
         strat.setSeed(1); // same seed = same random numbers
-        //		this.sim1 = new SingleJunctionAutoSimulation(config.getJunction(), 1, 10, 20, strat, 1);
-        this.sim2 = new SingleJunctionAutoSimulation(config.getJunction(), 3, 3, 30, strat, 1);
+        //		this.sim1 = new Simulation(config.getJunction(), 1, 10, 20, strat, 1);
+        this.sim2 = new Simulation(config.getJunction(), 3, 3, 30, strat, 1);
     }
 
     /**
@@ -47,7 +50,7 @@ public class SingleJunctionAutoSimulationTest {
 
     /**
      * F Test method for
-     * {@link sm.intersection.sim.SingleJunctionAutoSimulation#step(java.lang.Boolean)}.
+     * {@link Simulation#step(java.lang.Boolean)}.
      */
     @Test
     public final void testStep() {
@@ -57,7 +60,7 @@ public class SingleJunctionAutoSimulationTest {
 
     /**
      * Test method for
-     * {@link sm.intersection.sim.SingleJunctionAutoSimulation#go(java.lang.Boolean)}.
+     * {@link Simulation#go(java.lang.Boolean)}.
      */
     @Test
     public final void testGo() {
@@ -67,7 +70,7 @@ public class SingleJunctionAutoSimulationTest {
 
     /**
      * Test method for
-     * {@link sm.intersection.sim.SingleJunctionAutoSimulation#pause()}.
+     * {@link Simulation#pause()}.
      */
     //	@Test
     //	public final void testPause() {

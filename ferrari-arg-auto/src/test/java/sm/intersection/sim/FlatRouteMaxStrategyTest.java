@@ -12,11 +12,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.CrossingCar;
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
+import sm.argumentation.intersection.CrossingCar;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.BaseRSU;
+import sm.simulation.NoAltRoutesStrat;
+import sm.simulation.Defaults;
+import sm.simulation.FlatRouteMaxStrategy;
 
 /**
  * @author sm
@@ -44,7 +47,7 @@ public class FlatRouteMaxStrategyTest {
     }
 
     /**
-     * Test method for {@link sm.intersection.sim.DeepRouteMaxStrategy#newCars()}.
+     * Test method for {@link NoAltRoutesStrat#newCars()}.
      */
     @Test
     public final void testNewCars() {

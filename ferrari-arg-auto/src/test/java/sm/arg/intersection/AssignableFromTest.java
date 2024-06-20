@@ -6,8 +6,9 @@ package sm.arg.intersection;
 import java.util.ArrayList;
 import java.util.List;
 
-import sm.arg.general.Debatable;
+import sm.argumentation.general.Debatable;
 import sm.intersection.BaseRSU;
+import sm.intersection.DistanceRSU;
 import sm.intersection.RSU;
 
 /**

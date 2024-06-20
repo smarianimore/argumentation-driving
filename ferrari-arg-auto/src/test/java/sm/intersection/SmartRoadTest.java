@@ -13,15 +13,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.DistanceRSU;
-
 /**
  * @author sm
  *
  */
 public class SmartRoadTest {
 
-	private SmartRoad road;
+	private Road road;
 
 	/**
 	 * @throws java.lang.Exception
@@ -34,7 +32,7 @@ public class SmartRoadTest {
 		List<RSU<?>> rsus = new ArrayList<>();
 		rsus.add(dRsu);
 		rsus.add(bRSU);
-		road = new SmartRoad(new Road("b", Collections.emptyList()), rsus);
+		road = new Road(new BaseRoad("b", Collections.emptyList()), rsus);
 	}
 
 	/**
@@ -46,7 +44,7 @@ public class SmartRoadTest {
 	}
 
 	/**
-	 * Test method for {@link sm.intersection.SmartRoad#getRsus()}.
+	 * Test method for {@link Road#getRsus()}.
 	 */
 	@Test
 	public final void testGetRsus() {

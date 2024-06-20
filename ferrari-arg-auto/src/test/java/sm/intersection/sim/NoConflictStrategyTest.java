@@ -12,11 +12,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.CrossingCar;
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
+import sm.argumentation.intersection.CrossingCar;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.BaseRSU;
+import sm.simulation.FlatRouteMaxStrategy;
+import sm.simulation.ControlledStrat;
 
 /**
  * @author sm
@@ -25,14 +27,14 @@ import sm.intersection.BaseRSU;
 public class NoConflictStrategyTest {
     
     private static final int ITER = 10;
-    private NoConflictStrategy strat;
+    private ControlledStrat strat;
 
     /**
      * @throws java.lang.Exception
      */
     @Before
     public void setUp() throws Exception {
-        this.strat = new NoConflictStrategy();
+        this.strat = new ControlledStrat();
     }
 
     /**
@@ -44,7 +46,7 @@ public class NoConflictStrategyTest {
     }
 
     /**
-     * Test method for {@link sm.intersection.sim.FlatRouteMaxStrategy#newCars()}.
+     * Test method for {@link FlatRouteMaxStrategy#newCars()}.
      */
     @Test
     public final void testNewCars() {

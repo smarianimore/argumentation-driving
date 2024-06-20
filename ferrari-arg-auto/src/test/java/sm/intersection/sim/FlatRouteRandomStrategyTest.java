@@ -12,11 +12,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.CrossingCar;
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
+import sm.argumentation.intersection.CrossingCar;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.BaseRSU;
+import sm.simulation.Defaults;
+import sm.simulation.FlatRouteRandomStrategy;
 
 /**
  * @author sm
@@ -44,7 +46,7 @@ public class FlatRouteRandomStrategyTest {
 	}
 
 	/**
-	 * Test method for {@link sm.intersection.sim.FlatRouteRandomStrategy#newCars()}.
+	 * Test method for {@link FlatRouteRandomStrategy#newCars()}.
 	 */
 	@Test
 	public final void testNewCars() {

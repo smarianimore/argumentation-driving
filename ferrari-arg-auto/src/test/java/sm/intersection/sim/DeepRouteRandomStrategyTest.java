@@ -15,11 +15,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.CrossingCar;
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
+import sm.argumentation.intersection.CrossingCar;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.BaseRSU;
+import sm.simulation.RandomStrat;
+import sm.simulation.Defaults;
 
 /**
  * @author sm
@@ -28,14 +30,14 @@ import sm.intersection.BaseRSU;
 public class DeepRouteRandomStrategyTest {
 
     private static final int ITER = 1000;
-    private DeepAltRouteRandomStrategy strat;
+    private RandomStrat strat;
 
     /**
      * @throws java.lang.Exception
      */
     @Before
     public void setUp() throws Exception {
-        this.strat = new DeepAltRouteRandomStrategy();
+        this.strat = new RandomStrat();
     }
 
     /**
@@ -48,7 +50,7 @@ public class DeepRouteRandomStrategyTest {
 
     /**
      * Test method for
-     * {@link sm.intersection.sim.DeepAltRouteRandomStrategy#newCars()}.
+     * {@link RandomStrat#newCars()}.
      */
     @Test
     public final void testNewCars() {

@@ -12,6 +12,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import sm.argumentation.intersection.AltRoutesPolicy;
+import sm.argumentation.intersection.CrossingCar;
 import sm.intersection.Car;
 import sm.intersection.DIRECTION;
 import sm.intersection.STATUS;
@@ -24,7 +26,7 @@ import sm.intersection.WAY;
  */
 public class AltRoutesPolicyTest {
     
-    private AltRoutesPolicy policy;
+    private sm.argumentation.intersection.AltRoutesPolicy policy;
 
     /**
      * @throws java.lang.Exception
@@ -43,7 +45,7 @@ public class AltRoutesPolicyTest {
     }
 
     /**
-     * Test method for {@link sm.arg.intersection.AltRoutesPolicy#rightOfWay(sm.arg.intersection.CrossingCar, sm.arg.intersection.CrossingCar)}.
+     * Test method for {@link sm.argumentation.intersection.AltRoutesPolicy#rightOfWay(sm.argumentation.intersection.CrossingCar, sm.argumentation.intersection.CrossingCar)}.
      */
     @Test
     public final void testRightOfWay() {
@@ -55,7 +57,7 @@ public class AltRoutesPolicyTest {
         c1.addRoute(r0);
         c1.addRoute(r1);
         UrgentCar u1 = new UrgentCar(c1, 1);
-        CrossingCar cc1 = new CrossingCar(u1, WAY.WEST, STATUS.APPROACHING, 50);
+        sm.argumentation.intersection.CrossingCar cc1 = new sm.argumentation.intersection.CrossingCar(u1, WAY.WEST, STATUS.APPROACHING, 50);
         System.out.printf("Route: %d -> %s\n", cc1.getCurrentRouteRank(), cc1.getCurrentRoutePath());
         
         Car c2 = new Car("car2", 50);
@@ -66,7 +68,7 @@ public class AltRoutesPolicyTest {
         c2.addRoute(r0);
         c2.addRoute(r1);
         UrgentCar u2 = new UrgentCar(c2, 1);
-        CrossingCar cc2 = new CrossingCar(u2, WAY.SOUTH, STATUS.APPROACHING, 50);
+        sm.argumentation.intersection.CrossingCar cc2 = new sm.argumentation.intersection.CrossingCar(u2, WAY.SOUTH, STATUS.APPROACHING, 50);
         System.out.printf("Route: %d -> %s\n", cc2.getCurrentRouteRank(), cc2.getCurrentRoutePath());
         
         List<CrossingCar> crossing = this.policy.rightOfWay(cc1, cc2);

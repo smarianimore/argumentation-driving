@@ -13,22 +13,17 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sm.arg.intersection.AltRoutesPolicy;
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
-import sm.arg.intersection.UrgencyPolicy;
+import sm.argumentation.intersection.AltRoutesPolicy;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
+import sm.argumentation.intersection.UrgencyPolicy;
 import sm.intersection.BaseRSU;
-import sm.intersection.CrossingPolicy;
-import sm.intersection.JunctionMatrix;
-import sm.intersection.SmartJunction;
-import sm.intersection.sim.DeepAltRouteConfStrategy;
-import sm.intersection.sim.DeepAltRouteRandomStrategy;
-import sm.intersection.sim.Defaults;
-import sm.intersection.sim.MultiJunctionAutoSimulation;
-import sm.intersection.sim.Simulation;
-import sm.intersection.sim.SingleJunctionAutoSimulation;
-import sm.intersection.sim.VehiclesGenStrategy;
+import sm.argumentation.intersection.CrossingPolicy;
+import sm.intersection.JunctionsNetwork;
+import sm.intersection.Junction;
+import sm.simulation.*;
+import sm.simulation.NetworkSimulation;
 
 /**
  * @author sm
@@ -75,13 +70,13 @@ public final class Experiment01 {
         log.info("Defaults: {}", defs);
 
         for (int i = 0; i < Integer.parseInt(simProps.getProperty("nRuns")); i++) {
-            VehiclesGenStrategy strat = null;
-            if ("DeepAltRouteRandomStrategy".equals(simProps.getProperty(STRAT_P))) {
-                strat = new DeepAltRouteRandomStrategy();
-            } else if ("DeepAltRouteConfStrategy".equals(simProps.getProperty(STRAT_P))) {
-                strat = new DeepAltRouteConfStrategy();
+            VehiclesGenerationStrategy strat = null;
+            if ("RandomStrat".equals(simProps.getProperty(STRAT_P))) {
+                strat = new RandomStrat();
+            } else if ("ConflictRandomStrat".equals(simProps.getProperty(STRAT_P))) {
+                strat = new ConflictRandomStrat();
             } else {
-                log.error("UNSUPPORTED STRATEGY: choose <DeepAltRouteRandomStrategy> or <DeepAltRouteConfStrategy>");
+                log.error("UNSUPPORTED STRATEGY: choose <RandomStrat> or <ConflictRandomStrat>");
                 System.exit(-1);
             }
             CrossingPolicy pol = null;
@@ -96,26 +91,26 @@ public final class Experiment01 {
                 System.exit(-1);
             }
 
-            SmartJunction[][] junctions = new SmartJunction[Integer.parseInt(simProps.getProperty(ROWS_P))][Integer
+            Junction[][] junctions = new Junction[Integer.parseInt(simProps.getProperty(ROWS_P))][Integer
                     .parseInt(simProps.getProperty(COLS_P))];
             FourWaysJunctionConfig j4;
-            List<Simulation> simulations = new ArrayList<>();
+            List<SimulationAPI> simulationAPIS = new ArrayList<>();
             strat.setSeed(SEED);
-            SingleJunctionAutoSimulation s;
+            Simulation s;
             for (int r = 0; r < junctions.length; r++) {
                 for (int c = 0; c < junctions[r].length; c++) {
                     j4 = new FourWaysJunctionConfig(String.format("J_%d_%d", r, c), pol,
                             new DistanceRSU(new BaseRSU("distance", RSU_CONFIDENCE), RSU_DISTANCE));
                     junctions[r][c] = j4.getJunction();
                     strat.configJunction(junctions[r][c]);
-                    s = new SingleJunctionAutoSimulation(junctions[r][c], GEN_X_S,
+                    s = new Simulation(junctions[r][c], GEN_X_S,
                             Integer.parseInt(simProps.getProperty(GEN_STEPS_P)),
                             Integer.parseInt(simProps.getProperty(MAX_STEPS_P)), strat, SIM_STEP);
-                    simulations.add(s);
+                    simulationAPIS.add(s);
                 }
             }
-            JunctionMatrix network = new JunctionMatrix(junctions);
-            MultiJunctionAutoSimulation sim = new MultiJunctionAutoSimulation(network, simulations,
+            JunctionsNetwork network = new JunctionsNetwork(junctions);
+            NetworkSimulation sim = new NetworkSimulation(network, simulationAPIS,
                     String.format("performance-%d.csv", i));
             sim.go(Boolean.parseBoolean(simProps.getProperty(LOG_P)));
             log.info("Props: {}", simProps);

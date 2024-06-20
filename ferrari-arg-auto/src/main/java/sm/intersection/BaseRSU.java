@@ -9,17 +9,17 @@ package sm.intersection;
  */
 public final class BaseRSU {
 
-    private final String name;
+    private final String id;
     //	private final WAY position;
     private final double confidence;
 
     /**
-     * @param name
+     * @param id
      * @param position
      * @param confidence
      */
-    public BaseRSU(final String name, final double confidence) {
-        this.name = name;
+    public BaseRSU(final String id, final double confidence) {
+        this.id = id;
         //		this.position = position;
         this.confidence = confidence;
     }
@@ -27,8 +27,8 @@ public final class BaseRSU {
     /**
      * @return the name
      */
-    public String getName() {
-        return this.name;
+    public String getId() {
+        return this.id;
     }
 
     /**
@@ -47,7 +47,7 @@ public final class BaseRSU {
 
     @Override
     public String toString() {
-        return String.format("RSU [name=%s, confidence=%s]", this.name, this.confidence);
+        return String.format("RSU [name=%s, confidence=%s]", this.id, this.confidence);
     }
 
 }

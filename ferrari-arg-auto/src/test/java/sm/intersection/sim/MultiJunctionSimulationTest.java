@@ -10,16 +10,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
-import sm.intersection.BaseRSU;
-import sm.intersection.Car;
-import sm.intersection.DIRECTION;
-import sm.intersection.JunctionMatrix;
-import sm.intersection.SmartJunction;
-import sm.intersection.UrgentCar;
-import sm.intersection.WAY;
+import sm.intersection.DistanceRSU;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
+import sm.intersection.*;
+import sm.simulation.ManualNetworkSimulation;
+import sm.simulation.SimulationAPI;
+import sm.simulation.ManualSimulation;
 
 /**
  * @author sm
@@ -27,7 +24,7 @@ import sm.intersection.WAY;
  */
 public class MultiJunctionSimulationTest {
 
-    private MultiJunctionSimulation ms;
+    private ManualNetworkSimulation ms;
 
     /**
      * @throws java.lang.Exception
@@ -36,9 +33,9 @@ public class MultiJunctionSimulationTest {
     public void setUp() throws Exception {
         UrgentCar car;
         int nCars = 0;
-        List<Simulation> sims = new ArrayList<>();
+        List<SimulationAPI> sims = new ArrayList<>();
         FourWaysJunctionConfig fourWays;
-        SmartJunction[][] junctions = new SmartJunction[2][2];
+        Junction[][] junctions = new Junction[2][2];
         List<DIRECTION> route;
         /*
          * For each junction in network...
@@ -79,10 +76,10 @@ public class MultiJunctionSimulationTest {
                 /*
                  * ...finally create simulation!
                  */
-                sims.add(new SingleJunctionSimulation(junctions[r][c], fourWays.getCars(), 1));
+                sims.add(new ManualSimulation(junctions[r][c], fourWays.getCars(), 1));
             }
         }
-        this.ms = new MultiJunctionSimulation(new JunctionMatrix(junctions), sims, "perfs.csv");
+        this.ms = new ManualNetworkSimulation(new JunctionsNetwork(junctions), sims, "perfs.csv");
     }
 
     /**
@@ -95,7 +92,7 @@ public class MultiJunctionSimulationTest {
 
     /**
      * Test method for
-     * {@link sm.intersection.sim.MultiJunctionSimulation#step(java.lang.Boolean)}.
+     * {@link ManualNetworkSimulation#step(java.lang.Boolean)}.
      */
     @Test
     public final void testStep() {

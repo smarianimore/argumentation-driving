@@ -13,9 +13,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.BaseRSU;
 import sm.intersection.Car;
 import sm.intersection.DIRECTION;
+import sm.intersection.DistanceRSU;
 import sm.intersection.RSU;
 import sm.intersection.UrgentCar;
 import sm.intersection.WAY;
@@ -26,7 +29,7 @@ import sm.intersection.WAY;
  */
 public class FourWaysJunctionConfigTest {
 	
-	private FourWaysJunctionConfig fourWays;
+	private sm.argumentation.intersection.FourWaysJunctionConfig fourWays;
 
 	/**
 	 * @throws java.lang.Exception
@@ -35,8 +38,8 @@ public class FourWaysJunctionConfigTest {
 	public void setUp() throws Exception {
 		fourWays = new FourWaysJunctionConfig(
 				"4ways", 
-				new NumArgsPolicy("numArgs"), 
-				new DistanceRSU(
+				new NumArgsPolicy("numArgs"),
+				new sm.intersection.DistanceRSU(
 						new BaseRSU(
 								"rsu", 
 								1), 
@@ -52,7 +55,7 @@ public class FourWaysJunctionConfigTest {
 	}
 
 	/**
-	 * Test method for {@link sm.arg.intersection.FourWaysJunctionConfig#FourWaysJunctionConfig(java.lang.String, sm.arg.intersection.CrossingPolicy, sm.arg.intersection.RSU<?>[])}.
+	 * Test method for {@link sm.argumentation.intersection.FourWaysJunctionConfig#FourWaysJunctionConfig(java.lang.String, sm.arg.intersection.CrossingPolicy, sm.arg.intersection.RSU<?>[])}.
 	 */
 	@Test
 	public final void testFourWaysJunctionConfig() {
@@ -74,7 +77,7 @@ public class FourWaysJunctionConfigTest {
 	}
 
 	/**
-	 * Test method for {@link sm.arg.intersection.FourWaysJunctionConfig#addCar(sm.intersection.UrgentCar, java.lang.String)}.
+	 * Test method for {@link sm.argumentation.intersection.FourWaysJunctionConfig#addCar(sm.intersection.UrgentCar, java.lang.String)}.
 	 */
 	@Test
 	public final void testAddCar() {

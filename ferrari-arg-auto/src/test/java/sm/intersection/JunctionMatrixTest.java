@@ -12,9 +12,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import sm.arg.intersection.DistanceRSU;
-import sm.arg.intersection.FourWaysJunctionConfig;
-import sm.arg.intersection.NumArgsPolicy;
+import sm.argumentation.intersection.FourWaysJunctionConfig;
+import sm.argumentation.intersection.NumArgsPolicy;
 
 /**
  * @author sm
@@ -22,7 +21,7 @@ import sm.arg.intersection.NumArgsPolicy;
  */
 public class JunctionMatrixTest {
     
-    private JunctionMatrix jm;
+    private JunctionsNetwork jm;
 
     /**
      * @throws java.lang.Exception
@@ -30,7 +29,7 @@ public class JunctionMatrixTest {
     @Before
     public void setUp() throws Exception {
         FourWaysJunctionConfig fourWays;
-        SmartJunction[][] junctions = new SmartJunction[2][2];
+        Junction[][] junctions = new Junction[2][2];
         for (int r = 0; r < junctions.length; r++) {
             for (int c = 0; c < junctions[r].length; c++) {
                 fourWays = new FourWaysJunctionConfig(
@@ -44,7 +43,7 @@ public class JunctionMatrixTest {
                 junctions[r][c] = fourWays.getJunction();
             }
         }
-        this.jm = new JunctionMatrix(junctions);
+        this.jm = new JunctionsNetwork(junctions);
     }
 
     /**
@@ -56,7 +55,7 @@ public class JunctionMatrixTest {
     }
 
     /**
-     * Test method for {@link sm.intersection.JunctionMatrix#getJunction(int, int)}.
+     * Test method for {@link JunctionsNetwork#getJunction(int, int)}.
      */
     @Ignore
     @Test
@@ -65,7 +64,7 @@ public class JunctionMatrixTest {
     }
 
     /**
-     * Test method for {@link sm.intersection.JunctionMatrix#setJunction(int, int, sm.intersection.SmartJunction)}.
+     * Test method for {@link JunctionsNetwork#setJunction(int, int, Junction)}.
      */
     @Ignore
     @Test
@@ -74,7 +73,7 @@ public class JunctionMatrixTest {
     }
 
     /**
-     * Test method for {@link sm.intersection.JunctionMatrix#next(int[], sm.intersection.WAY, sm.intersection.DIRECTION)}.
+     * Test method for {@link JunctionsNetwork#next(int[], sm.intersection.WAY, sm.intersection.DIRECTION)}.
      */
     @Test
     public final void testNext() {
@@ -92,7 +91,7 @@ public class JunctionMatrixTest {
 //                assertEquals(this.jm.getJunction(r-1, c), this.jm.next(new int[] {r, c}, WAY.SOUTH, DIRECTION.STRAIGHT));
 //                assertEquals(this.jm.getJunction(r, c+1), this.jm.next(new int[] {r, c}, WAY.SOUTH, DIRECTION.RIGHT));
 //                assertEquals(this.jm.getJunction(r, c-1), this.jm.next(new int[] {r, c}, WAY.SOUTH, DIRECTION.LEFT));
-                Optional<SmartJunction> opt = this.jm.next(new int[] {r, c}, WAY.WEST, DIRECTION.STRAIGHT);
+                Optional<Junction> opt = this.jm.next(new int[] {r, c}, WAY.WEST, DIRECTION.STRAIGHT);
                 printNext(r, c, opt);
                 opt = this.jm.next(new int[] {r, c}, WAY.WEST, DIRECTION.RIGHT);
                 printNext(r, c, opt);
@@ -120,14 +119,14 @@ public class JunctionMatrixTest {
         }
     }
 
-    private void printNext(int r, int c, Optional<SmartJunction> opt) {
+    private void printNext(int r, int c, Optional<Junction> opt) {
         if (!opt.isEmpty()) {
-            System.out.println(String.format("Current: (%d,%d) \t next: %s", r, c, opt.get().getName()));
+            System.out.println(String.format("Current: (%d,%d) \t next: %s", r, c, opt.get().getId()));
         }
     }
 
     /**
-     * Test method for {@link sm.intersection.JunctionMatrix#toString()}.
+     * Test method for {@link JunctionsNetwork#toString()}.
      */
     @Test
     public final void testToString() {
