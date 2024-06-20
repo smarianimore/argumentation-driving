@@ -12,7 +12,6 @@ import java.util.Properties;
 
 /**
  * @author sm
- *
  */
 public final class Defaults {
 
@@ -29,7 +28,7 @@ public final class Defaults {
     private static final String P_ADD_DEPTH_P = "P_ADD_DEPTH";
     private static final String MAX_ROUTES_P = "MAX_ROUTES";
     private static final String P_ADD_NEW_ROUTE_P = "P_ADD_NEW_ROUTE";
-    
+
     public static int MIN_SPEED = 10;
     public static int MAX_SPEED = 50;
     public static int MIN_URGENCY = 0;
@@ -43,12 +42,13 @@ public final class Defaults {
     public static double P_ADD_DEPTH = 0.5;
     public static int MAX_ROUTES = 4; // MUST BE > 1
     public static double P_ADD_NEW_ROUTE = 0.5;
-    
+
     private static Defaults INSTANCE;
-    
-    private Defaults() {}
-    
-    public static Defaults getInstance(String path) throws FileNotFoundException, IOException {
+
+    private Defaults() {
+    }
+
+    public static Defaults getInstance(String path) throws IOException {
         if (INSTANCE == null) {
             Properties simProps = new Properties();
             simProps.load(new FileInputStream(path));
@@ -69,11 +69,11 @@ public final class Defaults {
         }
         return INSTANCE;
     }
-    
+
     @Override
     public String toString() {
         String res = "Defaults [ ";
-        for (Field f: this.getClass().getFields()) {
+        for (Field f : this.getClass().getFields()) {
             if (Modifier.isPublic(f.getModifiers())) {
                 try {
                     res += String.format("%s=%s, ", f.getName(), f.get(this));

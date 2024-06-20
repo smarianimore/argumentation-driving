@@ -3,18 +3,16 @@
  */
 package sm.simulation;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import sm.argumentation.intersection.CrossingCar;
 import sm.intersection.JunctionsNetwork;
 
+import java.io.IOException;
+import java.util.List;
+
 /**
  * @author sm
- *
  */
 public final class NetworkSimulation extends ManualNetworkSimulation {
 
@@ -22,7 +20,6 @@ public final class NetworkSimulation extends ManualNetworkSimulation {
     private final long maxSteps;
 
     /**
-     *
      * @param network
      * @param simulationAPIS MUST HAVE SAME STEP, SAME MAX STEPS
      */

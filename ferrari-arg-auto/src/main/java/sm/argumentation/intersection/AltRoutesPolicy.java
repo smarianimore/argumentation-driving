@@ -3,22 +3,20 @@
  */
 package sm.argumentation.intersection;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.syntax.AspicArgumentationTheory;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.general.Debatable;
 import sm.intersection.BasePolicy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @author sm
- *
  */
 public final class AltRoutesPolicy implements CrossingPolicy, Debatable {
 
@@ -82,7 +80,7 @@ public final class AltRoutesPolicy implements CrossingPolicy, Debatable {
     }
 
     private boolean loopRoutes(final CrossingCar refCar, final CrossingCar routingCar, final List<CrossingCar> cars,
-            final List<Integer> routes, boolean altFound) {
+                               final List<Integer> routes, boolean altFound) {
         if (!routingCar.isFrozen()) {
             for (final int p : routes) {
                 routingCar.setCurrentRoute(p);

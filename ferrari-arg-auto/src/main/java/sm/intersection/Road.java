@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * @author sm
- *
  */
 public final class Road {
 

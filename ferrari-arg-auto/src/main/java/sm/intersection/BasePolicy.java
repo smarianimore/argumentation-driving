@@ -5,7 +5,6 @@ package sm.intersection;
 
 /**
  * @author sm
- *
  */
 public final class BasePolicy {
 

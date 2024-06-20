@@ -3,18 +3,16 @@
  */
 package sm.simulation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import sm.argumentation.intersection.CrossingCar;
 import sm.intersection.Junction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author sm
- *
  */
 public final class Simulation extends ManualSimulation {
 
@@ -26,7 +24,6 @@ public final class Simulation extends ManualSimulation {
     private final VehiclesGenerationStrategy genStrategy;
 
     /**
-     *
      * @param junction
      * @param genPerSecond
      * @param genSteps

@@ -10,7 +10,6 @@ import java.util.Set;
 
 /**
  * @author sm
- *
  */
 public final class Junction {
 
@@ -22,7 +21,7 @@ public final class Junction {
     int nAltRoutesUsed;
 
     /**
-     * @param id  MUST BE UNIQUE
+     * @param id    MUST BE UNIQUE
      * @param roads
      */
     public Junction(final String id, final Map<WAY, Road> roads, final CrossingPolicy policy) {

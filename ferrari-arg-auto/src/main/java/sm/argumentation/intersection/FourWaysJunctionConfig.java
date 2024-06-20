@@ -3,12 +3,6 @@
  */
 package sm.argumentation.intersection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.syntax.AspicArgumentationTheory;
@@ -17,14 +11,13 @@ import org.tweetyproject.arg.aspic.syntax.StrictInferenceRule;
 import org.tweetyproject.logics.pl.syntax.Negation;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.general.Debatable;
 import sm.intersection.*;
-import sm.intersection.BaseRoad;
+
+import java.util.*;
 
 /**
  * @author sm
- *
  */
 public final class FourWaysJunctionConfig implements Debatable {
 
@@ -33,7 +26,6 @@ public final class FourWaysJunctionConfig implements Debatable {
     private final List<CrossingCar> cars;
 
     /**
-     *
      * @param junction
      * @param cars
      */
@@ -208,9 +200,9 @@ public final class FourWaysJunctionConfig implements Debatable {
                                 if (!alreadyConsidered
                                         .contains(this.cars.get(j).getName() + "V" + this.cars.get(i).getName())
                                         && !alreadyConsidered
-                                                .contains(this.cars.get(i).getName() + "V" + this.cars.get(j).getName())
+                                        .contains(this.cars.get(i).getName() + "V" + this.cars.get(j).getName())
                                         && !this.cars.get(i).equals(this.cars.get(j)) && !alreadyConsidered.contains(
-                                                this.cars.get(i).getName() + "x" + this.cars.get(j).getName())) {
+                                        this.cars.get(i).getName() + "x" + this.cars.get(j).getName())) {
                                     //	System.out.println(this.cars.get(i).getName()+"*"+this.cars.get(j).getName());
 
                                     final List<CrossingCar> canCross = this.junction.getPolicy()

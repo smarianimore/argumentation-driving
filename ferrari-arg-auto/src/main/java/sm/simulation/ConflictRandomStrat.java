@@ -1,21 +1,13 @@
 package sm.simulation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import sm.argumentation.intersection.CrossingCar;
+import sm.intersection.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import sm.argumentation.intersection.CrossingCar;
-import sm.intersection.DistanceRSU;
-import sm.intersection.Car;
-import sm.intersection.DIRECTION;
-import sm.intersection.RSU;
-import sm.intersection.STATUS;
-import sm.intersection.Junction;
-import sm.intersection.UrgentCar;
-import sm.intersection.WAY;
 
 public class ConflictRandomStrat implements VehiclesGenerationStrategy {
     private final Logger log = LoggerFactory.getLogger(ConflictRandomStrat.class);

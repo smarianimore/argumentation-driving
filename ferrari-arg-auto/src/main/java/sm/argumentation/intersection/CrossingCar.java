@@ -3,22 +3,20 @@
  */
 package sm.argumentation.intersection;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.syntax.AspicArgumentationTheory;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.general.Debatable;
 import sm.intersection.*;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author sm
- *
  */
 public class CrossingCar implements Debatable {
 
@@ -92,7 +90,6 @@ public class CrossingCar implements Debatable {
     }
 
     /**
-     *
      * @return time to cross in seconds
      */
     public double getTimeToCross() {
@@ -121,7 +118,6 @@ public class CrossingCar implements Debatable {
     }
 
     /**
-     *
      * @param smartJunction the next junction to be placed into
      * @return
      */
@@ -216,7 +212,6 @@ public class CrossingCar implements Debatable {
     }
 
     /**
-     *
      * @param route
      * @return
      */
@@ -230,7 +225,6 @@ public class CrossingCar implements Debatable {
     }
 
     /**
-     *
      * @return
      */
     public int getCurrentRouteRank() {
@@ -238,7 +232,6 @@ public class CrossingCar implements Debatable {
     }
 
     /**
-     *
      * @return
      */
     public List<DIRECTION> getCurrentRoutePath() {

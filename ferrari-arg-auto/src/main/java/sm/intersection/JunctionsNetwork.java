@@ -1,9 +1,9 @@
 package sm.intersection;
 
-import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Optional;
 
 public class JunctionsNetwork {
 
@@ -35,7 +35,7 @@ public class JunctionsNetwork {
         for (int r = 0; r < this.junctions.length; r++) {
             for (int c = 0; c < this.junctions[r].length; c++) {
                 if (this.junctions[r][c].getId().equals(name)) {
-                    res = Optional.of(new int[] { r, c });
+                    res = Optional.of(new int[]{r, c});
                 }
             }
         }
@@ -54,52 +54,52 @@ public class JunctionsNetwork {
             case WEST:
                 switch (dir) {
                     case STRAIGHT:
-                        next = new int[] { coord[0], coord[1] + 1 };
+                        next = new int[]{coord[0], coord[1] + 1};
                         break;
                     case RIGHT:
-                        next = new int[] { coord[0] + 1, coord[1] };
+                        next = new int[]{coord[0] + 1, coord[1]};
                         break;
                     case LEFT:
-                        next = new int[] { coord[0] - 1, coord[1] };
+                        next = new int[]{coord[0] - 1, coord[1]};
                         break;
                 }
                 break;
             case NORTH:
                 switch (dir) {
                     case STRAIGHT:
-                        next = new int[] { coord[0] + 1, coord[1] };
+                        next = new int[]{coord[0] + 1, coord[1]};
                         break;
                     case RIGHT:
-                        next = new int[] { coord[0], coord[1] - 1 };
+                        next = new int[]{coord[0], coord[1] - 1};
                         break;
                     case LEFT:
-                        next = new int[] { coord[0], coord[1] + 1 };
+                        next = new int[]{coord[0], coord[1] + 1};
                         break;
                 }
                 break;
             case EAST:
                 switch (dir) {
                     case STRAIGHT:
-                        next = new int[] { coord[0], coord[1] - 1 };
+                        next = new int[]{coord[0], coord[1] - 1};
                         break;
                     case RIGHT:
-                        next = new int[] { coord[0] - 1, coord[1] };
+                        next = new int[]{coord[0] - 1, coord[1]};
                         break;
                     case LEFT:
-                        next = new int[] { coord[0] + 1, coord[1] };
+                        next = new int[]{coord[0] + 1, coord[1]};
                         break;
                 }
                 break;
             case SOUTH:
                 switch (dir) {
                     case STRAIGHT:
-                        next = new int[] { coord[0] - 1, coord[1] };
+                        next = new int[]{coord[0] - 1, coord[1]};
                         break;
                     case RIGHT:
-                        next = new int[] { coord[0], coord[1] + 1 };
+                        next = new int[]{coord[0], coord[1] + 1};
                         break;
                     case LEFT:
-                        next = new int[] { coord[0], coord[1] - 1 };
+                        next = new int[]{coord[0], coord[1] - 1};
                         break;
                 }
                 break;

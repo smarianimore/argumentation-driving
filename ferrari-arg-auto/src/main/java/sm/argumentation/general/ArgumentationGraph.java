@@ -3,20 +3,18 @@
  */
 package sm.argumentation.general;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.syntax.AspicArgumentationTheory;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
-
 import sm.argumentation.intersection.ArgKeys;
 import sm.argumentation.intersection.CrossingCar;
 import sm.argumentation.intersection.CrossingPolicy;
 
+import java.util.List;
+
 /**
  * @author sm
- *
  */
 public final class ArgumentationGraph {
 

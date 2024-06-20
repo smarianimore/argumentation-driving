@@ -3,14 +3,13 @@
  */
 package sm.simulation;
 
-import java.util.List;
-
 import sm.argumentation.intersection.CrossingCar;
 import sm.intersection.Junction;
 
+import java.util.List;
+
 /**
  * @author sm
- *
  */
 public interface VehiclesGenerationStrategy {
 

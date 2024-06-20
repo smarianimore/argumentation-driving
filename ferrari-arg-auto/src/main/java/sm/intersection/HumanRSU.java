@@ -5,7 +5,6 @@ package sm.intersection;
 
 /**
  * @author sm
- *
  */
 public final class HumanRSU implements RSU<Boolean> {
 

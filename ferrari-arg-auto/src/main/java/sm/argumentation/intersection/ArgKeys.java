@@ -5,7 +5,6 @@ package sm.argumentation.intersection;
 
 /**
  * @author sm
- *
  */
 public enum ArgKeys {
     //If a car has been detected by RSU.

@@ -3,22 +3,14 @@
  */
 package sm.simulation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import sm.argumentation.intersection.CrossingCar;
+import sm.intersection.*;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import sm.argumentation.intersection.CrossingCar;
-import sm.intersection.DistanceRSU;
-import sm.intersection.Car;
-import sm.intersection.DIRECTION;
-import sm.intersection.RSU;
-import sm.intersection.STATUS;
-import sm.intersection.Junction;
-import sm.intersection.UrgentCar;
-import sm.intersection.WAY;
 
 /**
  * Totally random vehicles generation strategy with single 1-step route. - WAY
@@ -26,7 +18,6 @@ import sm.intersection.WAY;
  * 1 random DIRECTION only
  *
  * @author sm
- *
  */
 public final class FlatRouteRandomStrategy implements VehiclesGenerationStrategy {
 

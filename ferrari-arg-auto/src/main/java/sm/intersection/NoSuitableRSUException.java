@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * @author sm
- *
  */
 public final class NoSuitableRSUException extends Exception {
 

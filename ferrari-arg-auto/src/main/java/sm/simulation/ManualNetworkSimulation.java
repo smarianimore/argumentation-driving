@@ -3,43 +3,33 @@
  */
 package sm.simulation;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-
+import com.opencsv.CSVWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.opencsv.CSVWriter;
-
 import sm.argumentation.intersection.CrossingCar;
-import sm.intersection.JunctionsNetwork;
 import sm.intersection.Junction;
+import sm.intersection.JunctionsNetwork;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * @author sm
- *
  */
 public class ManualNetworkSimulation implements SimulationAPI {
 
-    private final Logger log = LoggerFactory.getLogger(ManualNetworkSimulation.class);
     protected final JunctionsNetwork network;
     protected final Map<String, SimulationAPI> simulations;
+    private final Logger log = LoggerFactory.getLogger(ManualNetworkSimulation.class);
     private final double step;
-    private long steps;
     protected boolean going;
     protected int nLeftNet = 0;
     protected int nArrived = 0;
     protected Set<CrossingCar> generated;
     protected long start;
     protected CSVWriter writer;
+    private long steps;
     private long nWaiting = 0;
 
     /**
@@ -59,8 +49,8 @@ public class ManualNetworkSimulation implements SimulationAPI {
         this.generated = new HashSet<>();
         try {
             this.writer = new CSVWriter(new FileWriter(performancePath));
-            writer.writeNext(new String[] { "simulation_step", "simulation_time", "vehicles", "crossings", "waitings", 
-                    "alternative_routes_used" });
+            writer.writeNext(new String[]{"simulation_step", "simulation_time", "vehicles", "crossings", "waitings",
+                    "alternative_routes_used"});
         } catch (IOException e) {
             this.log.warn("<CSVWriter> NOT READY");
             e.printStackTrace();
@@ -132,7 +122,7 @@ public class ManualNetworkSimulation implements SimulationAPI {
                 nServed += this.network.getJunction(i, j).getServed();
                 nArgProc += this.network.getJunction(i, j).getArgProc();
                 nAltRoutesUsed += this.network.getJunction(i, j).getAltRoutesUsed();
-                this.nWaiting += this.simulations.get(this.network.getJunction(i, j).getId()).getNWaiting();;
+                this.nWaiting += this.simulations.get(this.network.getJunction(i, j).getId()).getNWaiting();
             }
         }
         if (log) {
@@ -146,9 +136,9 @@ public class ManualNetworkSimulation implements SimulationAPI {
             this.log.info("##### #####");
         }
         if (this.writer != null) {
-            writer.writeNext(new String[] { String.valueOf(this.steps),
+            writer.writeNext(new String[]{String.valueOf(this.steps),
                     String.valueOf(System.currentTimeMillis() - this.start), String.valueOf(this.generated.size()),
-                    String.valueOf(nServed), String.valueOf(this.nWaiting), String.valueOf(nAltRoutesUsed) });
+                    String.valueOf(nServed), String.valueOf(this.nWaiting), String.valueOf(nAltRoutesUsed)});
         }
         return outOfSim;
     }
@@ -253,10 +243,10 @@ public class ManualNetworkSimulation implements SimulationAPI {
         throw new UnsupportedOperationException(
                 "A ManualNetworkSimulation does not have a maximum number of steps (its Auto- version does)");
     }
-    
+
     @Override
     public long getNWaiting() {
-        return this.nWaiting ;
+        return this.nWaiting;
     }
 
 }

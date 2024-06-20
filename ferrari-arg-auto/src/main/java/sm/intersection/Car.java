@@ -9,12 +9,11 @@ import java.util.Map;
 
 /**
  * @author sm
- *
  */
 public final class Car {
 
-    private String name;
     private final Map<Integer, List<DIRECTION>> routes;
+    private String name;
     private int currentRoute;
     private double speed;
     private int next;
@@ -51,6 +50,11 @@ public final class Car {
         return this.name;
     }
 
+    public Car setName(final String name) {
+        this.name = name;
+        return this;
+    }
+
     /**
      * @return the routes
      */
@@ -84,23 +88,10 @@ public final class Car {
         return this;
     }
 
-    public Car setName(final String name) {
-        this.name = name;
-        return this;
-    }
-
     @Override
     public String toString() {
         return String.format("Car [name=%s, routes=%s, currentRoute=%d, speed=%s]", this.name, this.routes,
                 this.currentRoute, this.speed);
-    }
-
-    /**
-     *
-     * @param route
-     */
-    public void setCurrentRoute(final int route) {
-        this.currentRoute = route;
     }
 
     /**
@@ -111,7 +102,13 @@ public final class Car {
     }
 
     /**
-     *
+     * @param route
+     */
+    public void setCurrentRoute(final int route) {
+        this.currentRoute = route;
+    }
+
+    /**
      * @param rank
      * @return
      */

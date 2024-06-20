@@ -1,7 +1,16 @@
 /**
- * 
+ *
  */
 package sm.paper;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import sm.argumentation.intersection.*;
+import sm.intersection.BaseRSU;
+import sm.intersection.DistanceRSU;
+import sm.intersection.Junction;
+import sm.intersection.JunctionsNetwork;
+import sm.simulation.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,21 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import sm.argumentation.intersection.AltRoutesPolicy;
-import sm.intersection.DistanceRSU;
-import sm.argumentation.intersection.FourWaysJunctionConfig;
-import sm.argumentation.intersection.NumArgsPolicy;
-import sm.argumentation.intersection.UrgencyPolicy;
-import sm.intersection.BaseRSU;
-import sm.argumentation.intersection.CrossingPolicy;
-import sm.intersection.JunctionsNetwork;
-import sm.intersection.Junction;
-import sm.simulation.*;
-import sm.simulation.NetworkSimulation;
 
 /**
  * @author sm
@@ -48,7 +42,7 @@ public final class Experiment01 {
 
     /**
      * @param args filepath to settings file
-     * 
+     *
      * @throws IOException
      * @throws FileNotFoundException
      */

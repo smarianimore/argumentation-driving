@@ -1,9 +1,9 @@
 package sm.simulation;
 
-import java.util.List;
-
 import sm.argumentation.intersection.CrossingCar;
 import sm.intersection.Junction;
+
+import java.util.List;
 
 public interface SimulationAPI {
 
@@ -40,7 +40,7 @@ public interface SimulationAPI {
     long getSteps();
 
     long getMaxSteps();
-    
+
     long getNWaiting();
 
 }

@@ -3,11 +3,6 @@
  */
 package sm.simulation;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.reasoner.SimpleAspicReasoner;
@@ -20,21 +15,20 @@ import org.tweetyproject.commons.ParserException;
 import org.tweetyproject.logics.pl.parser.PlParser;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.general.ArgumentationGraph;
 import sm.argumentation.general.Debatable;
 import sm.argumentation.intersection.ArgKeys;
 import sm.argumentation.intersection.CrossingCar;
 import sm.argumentation.intersection.FourWaysJunctionConfig;
-import sm.intersection.RSU;
-import sm.intersection.STATUS;
-import sm.intersection.Junction;
-import sm.intersection.Road;
-import sm.intersection.WAY;
+import sm.intersection.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author sm
- *
  */
 public class ManualSimulation implements SimulationAPI {
 
@@ -42,10 +36,10 @@ public class ManualSimulation implements SimulationAPI {
     private final Junction junction;
     private final List<CrossingCar> cars;
     private final double step;
-    private long steps;
     protected boolean going;
     protected boolean none;
     protected long start;
+    private long steps;
     private long nWaiting;
 
     public ManualSimulation(final Junction junction, final List<CrossingCar> cars, final double step) {
@@ -317,7 +311,7 @@ public class ManualSimulation implements SimulationAPI {
         throw new UnsupportedOperationException(
                 "A ManualSimulation does not have a maximum number of steps (its Auto- version does)");
     }
-    
+
     @Override
     public long getNWaiting() {
         return this.nWaiting;

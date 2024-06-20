@@ -3,19 +3,17 @@
  */
 package sm.argumentation.intersection;
 
-import java.util.Collections;
-import java.util.List;
-
 import org.tweetyproject.arg.aspic.syntax.AspicArgumentationTheory;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.general.Debatable;
 import sm.intersection.BasePolicy;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @author sm
- *
  */
 public final class UrgencyPolicy implements CrossingPolicy, Debatable {
 

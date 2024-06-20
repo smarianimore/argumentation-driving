@@ -1,9 +1,5 @@
 package sm.argumentation.intersection.examples;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.reasoner.SimpleAspicReasoner;
@@ -16,26 +12,25 @@ import org.tweetyproject.commons.ParserException;
 import org.tweetyproject.logics.pl.parser.PlParser;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.intersection.CrossingCar;
 import sm.argumentation.intersection.FourWaysJunctionConfig;
 import sm.argumentation.intersection.UrgencyPolicy;
-import sm.intersection.DistanceRSU;
-import sm.intersection.BaseRSU;
-import sm.intersection.Car;
-import sm.intersection.DIRECTION;
-import sm.intersection.UrgentCar;
+import sm.intersection.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExampleNoConflict {
 
     /*
-    *
-    * An example where we can see a Four Ways Junction where three cars have to cross.
-    * The RSU system is trustworthy so these three cars are correctly detected.
-    * This scenario impose that one car (B) has to decrease its speed due to the strategy implemented by the policy.
-    *
-    *
-    */
+     *
+     * An example where we can see a Four Ways Junction where three cars have to cross.
+     * The RSU system is trustworthy so these three cars are correctly detected.
+     * This scenario impose that one car (B) has to decrease its speed due to the strategy implemented by the policy.
+     *
+     *
+     */
     private final static Logger log = LoggerFactory.getLogger(Example1.class);
 
     public static void main(final String[] args) throws ParserException, IOException {

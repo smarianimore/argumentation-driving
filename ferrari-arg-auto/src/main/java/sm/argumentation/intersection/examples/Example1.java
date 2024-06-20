@@ -1,9 +1,5 @@
 package sm.argumentation.intersection.examples;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tweetyproject.arg.aspic.reasoner.SimpleAspicReasoner;
@@ -16,15 +12,16 @@ import org.tweetyproject.commons.ParserException;
 import org.tweetyproject.logics.pl.parser.PlParser;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.general.ArgumentationGraph;
 import sm.argumentation.intersection.ArgKeys;
 import sm.argumentation.intersection.CrossingCar;
 import sm.argumentation.intersection.FourWaysJunctionConfig;
-import sm.intersection.DistanceRSU;
 import sm.argumentation.intersection.NumArgsPolicy;
 import sm.intersection.*;
-import sm.intersection.JunctionsNetwork;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Example1 {
 

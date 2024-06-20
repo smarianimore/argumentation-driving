@@ -1,9 +1,4 @@
-
 package sm.argumentation.intersection.examples;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,15 +12,14 @@ import org.tweetyproject.commons.ParserException;
 import org.tweetyproject.logics.pl.parser.PlParser;
 import org.tweetyproject.logics.pl.syntax.PlFormula;
 import org.tweetyproject.logics.pl.syntax.Proposition;
-
 import sm.argumentation.intersection.CrossingCar;
 import sm.argumentation.intersection.FourWaysJunctionConfig;
 import sm.argumentation.intersection.UrgencyPolicy;
-import sm.intersection.DistanceRSU;
-import sm.intersection.BaseRSU;
-import sm.intersection.Car;
-import sm.intersection.DIRECTION;
-import sm.intersection.UrgentCar;
+import sm.intersection.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  *
