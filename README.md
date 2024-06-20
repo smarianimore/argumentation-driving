@@ -6,7 +6,7 @@ Here follows a summary description of the simulator as well as instructions abou
 
 The picture below shows the main classes involved in a typical simulation, divided in three Java packages.
 
-![Main classes involved in a typical simulation, and their relationships](/../master/2021-argumentation-driving-sw.png)
+![Main classes involved in a typical simulation, and their relationships](/../master/sw.png)
 
   * Package **"intersection"**: 
     Gathers most of the classes modelling the application domain, i.e. intersection crossing.
